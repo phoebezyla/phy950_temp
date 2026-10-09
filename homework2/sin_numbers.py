@@ -30,7 +30,7 @@ def histogram(xarr,nbins=20):
 
     fig,(ax1,ax2) = plt.subplots(nrows=1,ncols=2)
 
-    ax1.hist(xarr,bins=nbins,alpha=0.6)
+    ax1.hist(xarr,bins=nbins,alpha=0.6,density=True)
     ax1.set_title("Histogram of values")
     ax2.plot(xarr,f(xarr),'r',label="Distribution function")
     ax2.set_title(r"$f(x) = \frac{\pi}{2} sin(\pi x)$")
