@@ -9,7 +9,7 @@ def main() -> int():
 def print_hello():
     print("Hello World!")
 
-def hist_create(n=10000,mu=16,dev=4):
+def hist_create(n=10000,mu=16,dev=4,bins=30):
     ''' This builds a histogram from a normal distribution
     with mean = mu, standard deviation = dev. n points are
     binned. The mean value of the histogram is returned. '''
@@ -20,18 +20,18 @@ def hist_create(n=10000,mu=16,dev=4):
 
     # Histogram fit
     xarr = np.linspace(min(r),max(r),1000)
-    yarr = norm.pdf(xarr,loc=mu,scale=dev)
- 
+    yarr = norm.pdf(xarr,loc=mu,scale=dev) 
+
     # build figure
     fig, ax = plt.subplots()
     
-    ax.hist(r, bins=30, density=True,
+    ax.hist(r, bins=bins, density=True,
             label="Random values histogram")
     ax.plot(xarr,yarr,'r-',alpha=0.6,label="Norm PDF")
 
     ax.legend()
     plt.show()
-    plt.savefig(f"normhist_mu{mu}_std{dev}.png")
+    plt.savefig(f"normhist_mu{mu}_std{dev}_{bins}bins.png")
     plt.close()
 
     return np.mean(r)
