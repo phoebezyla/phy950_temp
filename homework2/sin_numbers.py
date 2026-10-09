@@ -24,14 +24,17 @@ def transformation(rarr):
 
 
 def histogram(xarr,nbins=20):
-    plt.figure()
+    ''' Plots a histogram of x values on above image, 
+    and the distribution function f(x) on below image.
+    '''
 
-    plt.hist(xarr,bins=nbins,alpha=0.6)
-    plt.plot(xarr,f(xarr),'r',label="Distribution function")
+    fig,(ax1,ax2) = plt.subplots(nrows=1,ncols=2)
 
-    plt.xlabel("x")
-    plt.ylabel("Counts")
-    plt.legend()
+    ax1.hist(xarr,bins=nbins,alpha=0.6)
+    ax1.set_title("Histogram of values")
+    ax2.plot(xarr,f(xarr),'r',label="Distribution function")
+    ax2.set_title(r"$f(x) = \frac{\pi}{2} sin(\pi x)$")
+
     plt.show()
     plt.savefig("sin_hist.png")
     plt.close
