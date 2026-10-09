@@ -25,7 +25,7 @@ def hist_create(n=10000,mu=16,dev=4):
     # build figure
     fig, ax = plt.subplots()
     
-    ax.hist(r, density=True,label="Random values histogram")
+    ax.hist(r, bins=20, density=True,label="Random values histogram")
     ax.plot(xarr,yarr,'r-',alpha=0.6,label="Norm PDF")
 
     ax.legend()
